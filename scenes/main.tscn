@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bh0oolp3o3jng"]
 
-[ext_resource type="ArrayMesh" uid="uid://c66tsbqk76kyp" path="res://moneda de mario.obj" id="1_gbnk1"]
+[ext_resource type="ArrayMesh" uid="uid://c66tsbqk76kyp" path="res://assets/moneda de mario.obj" id="1_gbnk1"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_c508m"]
 

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://dibhb8r158uyo"
+path="res://.godot/imported/Coronavirus_.obj-8ba61d9876ddcf501a0b242eb48ff2c1.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Coronavirus_.obj-8ba61d9876ddcf501a0b242eb48ff2c1.mesh"]
+
+source_file="res://assets/Coronavirus_.obj"
+dest_files=["res://.godot/imported/Coronavirus_.obj-8ba61d9876ddcf501a0b242eb48ff2c1.mesh", "res://.godot/imported/Coronavirus_.obj-8ba61d9876ddcf501a0b242eb48ff2c1.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
