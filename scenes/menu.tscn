@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://e1sh88tl3bvj"]
+
+[ext_resource type="Script" path="res://scripts/control.gd" id="1_ssysa"]
+[ext_resource type="Texture2D" uid="uid://civof4a8a4jer" path="res://assets/RECURSOS NECESARIOS 1/FONDO MENU.png" id="2_odujm"]
+[ext_resource type="Texture2D" uid="uid://b0hnemjjotq0q" path="res://assets/RECURSOS NECESARIOS 1/buttonLarge.png" id="3_mhea8"]
+
+[node name="Node" type="Node"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 648.0
+script = ExtResource("1_ssysa")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Control"]
+layout_mode = 0
+offset_right = 1144.0
+offset_bottom = 649.0
+texture = ExtResource("2_odujm")
+
+[node name="VBox_Menu" type="VBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = 723.0
+offset_right = 1147.0
+offset_bottom = 651.0
+alignment = 1
+
+[node name="Btn_Play" type="TextureButton" parent="Control/VBox_Menu"]
+layout_mode = 2
+texture_normal = ExtResource("3_mhea8")
+stretch_mode = 3
+
+[node name="Lbl_Play" type="Label" parent="Control/VBox_Menu/Btn_Play"]
+layout_mode = 0
+offset_left = 113.0
+offset_right = 308.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 27
+text = "PLAY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Btn_Exit" type="TextureButton" parent="Control/VBox_Menu"]
+layout_mode = 2
+texture_normal = ExtResource("3_mhea8")
+stretch_mode = 3
+
+[node name="Lbl_Salir" type="Label" parent="Control/VBox_Menu/Btn_Exit"]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 3.0
+offset_right = 307.0
+offset_bottom = 69.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 27
+text = "EXIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/VBox_Menu/Btn_Play" to="Control" method="_on_btn_play_pressed"]
+[connection signal="pressed" from="Control/VBox_Menu/Btn_Exit" to="Control" method="_on_btn_exit_pressed"]

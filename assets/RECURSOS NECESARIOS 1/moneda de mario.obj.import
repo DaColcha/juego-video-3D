@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://b3v1gs8ghpqio"
+path="res://.godot/imported/moneda de mario.obj-8f29fb1be6b9c4612ffb3bb4b430ef6a.mesh"
+
+[deps]
+
+files=["res://.godot/imported/moneda de mario.obj-8f29fb1be6b9c4612ffb3bb4b430ef6a.mesh"]
+
+source_file="res://assets/RECURSOS NECESARIOS 1/moneda de mario.obj"
+dest_files=["res://.godot/imported/moneda de mario.obj-8f29fb1be6b9c4612ffb3bb4b430ef6a.mesh", "res://.godot/imported/moneda de mario.obj-8f29fb1be6b9c4612ffb3bb4b430ef6a.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false
