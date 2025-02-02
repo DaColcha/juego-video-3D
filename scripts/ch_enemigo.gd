@@ -9,6 +9,6 @@ func _ready():
 func _physics_process(delta):
 		
 	angle = angle + (PI*delta)
-	if angle >= 3*PI:
+	if angle >= 2*PI:
 			angle=0
 	set_rotation(Vector3(0, angle*2, 0))

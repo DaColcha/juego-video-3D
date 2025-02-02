@@ -1,13 +1,15 @@
-[gd_scene load_steps=17 format=3 uid="uid://bh0oolp3o3jng"]
+[gd_scene load_steps=20 format=3 uid="uid://bh0oolp3o3jng"]
 
 [ext_resource type="Script" path="res://scripts/control.gd" id="1_78rt8"]
-[ext_resource type="ArrayMesh" uid="uid://c66tsbqk76kyp" path="res://assets/moneda de mario.obj" id="1_gbnk1"]
 [ext_resource type="Script" path="res://scripts/ch_enemigo.gd" id="1_lbjes"]
 [ext_resource type="Texture2D" uid="uid://b0hnemjjotq0q" path="res://assets/RECURSOS NECESARIOS 1/buttonLarge.png" id="1_vyc7o"]
 [ext_resource type="Script" path="res://scripts/rg_player.gd" id="2_1y6t4"]
 [ext_resource type="ArrayMesh" uid="uid://2oidr2hi7v7s" path="res://assets/Environment/naturePack_014.obj" id="4_v2c4l"]
 [ext_resource type="ArrayMesh" uid="uid://csfoyue1vehdj" path="res://assets/Environment/naturePack_015.obj" id="5_mytgb"]
+[ext_resource type="PackedScene" uid="uid://bxx0nssknjowm" path="res://assets/coin_-_super_mario_odyssey.glb" id="5_od2b3"]
 [ext_resource type="ArrayMesh" uid="uid://csrxyqjjc1j6l" path="res://assets/Environment/naturePack_017.obj" id="6_goxer"]
+[ext_resource type="Script" path="res://scripts/points.gd" id="9_84nym"]
+[ext_resource type="FontFile" uid="uid://oypeodju2x6n" path="res://assets/fonts/FiraCodeNerdFontMono-Regular.ttf" id="10_vh5vm"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_c508m"]
 
@@ -29,14 +31,21 @@ render_priority = 2
 metallic = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_m17gy"]
+size = Vector3(1.86723, 1, 1.7877)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2psa3"]
-size = Vector3(2.68723, 2.66516, 2.2583)
+size = Vector3(0.833479, 0.84377, 0.263718)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mw5u6"]
 albedo_color = Color(0.951868, 0.102496, 0.586366, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_731pf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_5vbys"]
+font = ExtResource("10_vh5vm")
+font_size = 55
+font_color = Color(0, 0, 0, 1)
+shadow_size = 7
 
 [node name="Main" type="Node3D"]
 
@@ -74,24 +83,24 @@ environment = SubResource("Environment_2lmio")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0235052, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="StaticBody3D"]
-transform = Transform3D(10, 0, 0, 0, 0.2, 0, 0, 0, 10, 0.0235052, 0, 0)
+transform = Transform3D(10, 0, 0, 0, 0.2, 0, 0, 0, 10, 2.56502, 0.0294683, -2.45235)
+size = Vector3(1.86951, 1, 1.79102)
 material = SubResource("StandardMaterial3D_f8kfe")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(10, 0, 0, 0, 0.2, 0, 0, 0, 10, 0.0327621, 2.38419e-07, 0.00191975)
+transform = Transform3D(10, 0, 0, 0, 0.2, 0, 0, 0, 10, 2.5539, 2.38419e-07, -2.4594)
 shape = SubResource("BoxShape3D_m17gy")
 
 [node name="ch_Enemigo" type="CharacterBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.50876, 0.083366, 0.127721)
 script = ExtResource("1_lbjes")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="ch_Enemigo"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.544903, 0)
-mesh = ExtResource("1_gbnk1")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ch_Enemigo"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000761747, 1.42613, 0.0941292)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115461, 0.683558, 0.0160252)
 shape = SubResource("BoxShape3D_2psa3")
+
+[node name="CoinScene" parent="ch_Enemigo" instance=ExtResource("5_od2b3")]
+transform = Transform3D(0.0871558, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.0871558, -0.00539303, 0.67567, 0.00126004)
 
 [node name="Rg_Player" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.71828, 0.29348, 1.66189)
@@ -109,35 +118,93 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.252474, 0.31, 1.33543)
 shape = SubResource("BoxShape3D_731pf")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.932736, 1.59177, 8.3224)
+transform = Transform3D(1, 0, 0, 0, 0.985996, 0.166769, 0, -0.166769, 0.985996, -0.20341, 2.21622, 8.33806)
 fov = 63.9288
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00651723, 3.76785, -5.47929)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00651723, 3.76785, -7.32623)
 light_energy = 4.615
-omni_range = 11.1413
+omni_range = 18.0805
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.77793, 2.95109, 4.6776)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.9777, 1.68702, 5.32433)
 light_energy = 4.065
-omni_range = 7.26453
+omni_range = 11.1028
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.00973, 0.923594, 4.46325)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.27834, 1.04494, 4.42175)
 light_energy = 5.518
-omni_range = 7.26453
+omni_range = 9.71947
 
 [node name="NaturePack014" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.75093, 0.1, -2.16586)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.1824, 0.1, -2.16586)
 mesh = ExtResource("4_v2c4l")
 skeleton = NodePath("../ch_Enemigo")
 
 [node name="NaturePack015" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.02178, 0.1, 0.139779)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.02178, 0.1, -5.47401)
 mesh = ExtResource("5_mytgb")
 
 [node name="NaturePack017" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.12593, 0.221502, 1.89032)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.63793, 0.221502, 1.89032)
 mesh = ExtResource("6_goxer")
+
+[node name="ch_Enemigo2" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.01752, 0.166732, -5.94935)
+script = ExtResource("1_lbjes")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ch_Enemigo2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115461, 0.683558, 0.0160252)
+shape = SubResource("BoxShape3D_2psa3")
+
+[node name="CoinScene" parent="ch_Enemigo2" instance=ExtResource("5_od2b3")]
+transform = Transform3D(0.0871558, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.0871558, 0, 0.675669, 0)
+
+[node name="ch_Enemigo3" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.99833, 2.17824, -2.02911)
+script = ExtResource("1_lbjes")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ch_Enemigo3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115461, 0.683558, 0.0160252)
+shape = SubResource("BoxShape3D_2psa3")
+
+[node name="CoinScene" parent="ch_Enemigo3" instance=ExtResource("5_od2b3")]
+transform = Transform3D(0.0871558, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.0871558, 0, 0.675669, 0)
+
+[node name="ch_Enemigo4" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74148, 0.822265, 1.43771)
+script = ExtResource("1_lbjes")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ch_Enemigo4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115461, 0.683558, 0.0160252)
+shape = SubResource("BoxShape3D_2psa3")
+
+[node name="CoinScene" parent="ch_Enemigo4" instance=ExtResource("5_od2b3")]
+transform = Transform3D(0.0871558, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.0871558, 0, 0.675669, 0)
+
+[node name="ch_Enemigo5" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.46556, 1.45852, -1.54675)
+script = ExtResource("1_lbjes")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ch_Enemigo5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115461, 0.683558, 0.0160252)
+shape = SubResource("BoxShape3D_2psa3")
+
+[node name="CoinScene" parent="ch_Enemigo5" instance=ExtResource("5_od2b3")]
+transform = Transform3D(0.0871558, 0, 0.996195, 0, 1, 0, -0.996195, 0, 0.0871558, 0, 0.675669, 0)
+
+[node name="Points" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 337.0
+offset_bottom = 67.0
+script = ExtResource("9_84nym")
+
+[node name="Label" type="Label" parent="Points"]
+layout_mode = 0
+offset_right = 367.0
+offset_bottom = 64.0
+text = "Puntos: "
+label_settings = SubResource("LabelSettings_5vbys")
 
 [connection signal="pressed" from="Control/VBoxContainer/Btn_Menu" to="Control" method="_on_btn_menu_pressed"]

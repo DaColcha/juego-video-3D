@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=3 uid="uid://rgpimgwn10ts"]
+
+[ext_resource type="FontFile" uid="uid://oypeodju2x6n" path="res://assets/fonts/FiraCodeNerdFontMono-Regular.ttf" id="1_wol0u"]
+[ext_resource type="Texture2D" uid="uid://b0hnemjjotq0q" path="res://assets/RECURSOS NECESARIOS 1/buttonLarge.png" id="2_u5gaf"]
+[ext_resource type="Script" path="res://scripts/again_button.gd" id="3_ky05d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_nmwjj"]
+font = ExtResource("1_wol0u")
+font_size = 34
+
+[sub_resource type="LabelSettings" id="LabelSettings_shxvl"]
+font = ExtResource("1_wol0u")
+font_size = 34
+font_color = Color(0, 0, 0, 1)
+
+[node name="Final" type="CanvasLayer"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1155.0
+offset_bottom = 650.0
+color = Color(0.113923, 0.306585, 0.635572, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 220.0
+offset_top = 232.0
+offset_right = 940.0
+offset_bottom = 323.0
+text = "Felicidades! 
+Haz recolectado todas las monedas!"
+label_settings = SubResource("LabelSettings_nmwjj")
+horizontal_alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = 406.0
+offset_top = 381.0
+offset_right = 783.0
+offset_bottom = 482.0
+texture_normal = ExtResource("2_u5gaf")
+stretch_mode = 0
+script = ExtResource("3_ky05d")
+
+[node name="Label" type="Label" parent="TextureButton"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 16.0
+offset_right = 373.0
+offset_bottom = 89.0
+text = "Volver a jugar"
+label_settings = SubResource("LabelSettings_shxvl")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
